@@ -4,12 +4,12 @@
 
 // info of wifi
 const char* ssid     = "OPPO_K3";
-const char* password = "@123456789";
+const char* pass = "@123456789";
 
 // authentication credentials
 const char* clientID = "Wemos_ESP8266_D1";
 const char* username = "anomyous";
-const char* password = "unknown"
+const char* password = "unknown";
 
 // info of broker
 const char* server = "192.168.43.89";
@@ -36,7 +36,7 @@ void setup() {
 
   WiFi.mode(WIFI_STA);
   WiFi.hostname(clientID);
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid, pass);
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(delayTime);
@@ -82,6 +82,7 @@ char* getDataFromSensors() {
   int gas = random(minimum, maximum); // concentration of gas
 
   // todo: dung thu vien AduinoJson dong goi du lieu JSON cho no ngau thay vi code chay nhu the nay :))
+  // json viet sai roi nha: key & value string thi phai boc trong ngoac kep
   String res = "";
   res += "{temp: " + String(temp) + ",";
   res += "hum: " + String(hum) + ",";
